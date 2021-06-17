@@ -1,0 +1,26 @@
+﻿[::Send š
+]::Send č
+'::Send ž
++[::Send Š
++]::Send Č
++'::Send Ž
+^[::Send {text}[
+^]::Send {text}]
+^'::Send {text}'
++^[::Send {text}{
++^]::Send {text}}
++^'::Send "
+#If GetKeyState("Capslock","T")
+  [::Send Š
+  ]::Send Č
+  '::Send Ž
+	+[::Send š
+	+]::Send č
+	+'::Send ž
+  ^[::Send {text}{
+  ^]::Send {text}}
+  ^'::Send "
+  +^[::Send {text}[
+  +^]::Send {text}]
+  +^'::Send {text}'
+#If

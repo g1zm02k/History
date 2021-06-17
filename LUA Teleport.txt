@@ -1,0 +1,28 @@
+{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function checkKeys()
+  --save
+  if isKeyPressed(VK_PRIOR) then
+  speak('save')
+    coordx = readFloat("[p_coord]+30") 
+    coordy = readFloat("[p_coord]+34") 
+    coordz = readFloat("[p_coord]+38")
+  end
+  --Load
+  if isKeyPressed(VK_NEXT) then
+  speak('teleport')
+    writeFloat("[p_coord]+30", coordx)
+    writeFloat("[p_coord]+34", coordy)
+    writeFloat("[p_coord]+38", coordz)
+  end
+end
+
+t=createTimer(nil)
+timer_setInterval(t, 10)
+timer_onTimer(t, checkKeys)
+timer_setEnabled(t, true)
+
+[DISABLE]
+timer_setEnabled(t, false)
